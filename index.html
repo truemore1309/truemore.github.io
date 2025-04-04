@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Truemore - Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      width: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .background-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      animation: slideInDown 0.25s ease-in forwards;
+      transform: translateY(-20px);
+    }
+    .clear-bg,
+    .blurred-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .blurred-bg {
+      filter: brightness(0.5) blur(2px);
+      transform: scale(1.05);
+      mask-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%), transparent 180px, black 300px);
+      -webkit-mask-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%), transparent 180px, black 300px);
+      mask-repeat: no-repeat;
+      mask-position: center;
+      transition: mask-image 0.3s ease, -webkit-mask-image 0.3s ease;
+    }
+    .hero-content {
+      z-index: 2;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #ccc;
+    }
+    .about-section {
+      background-color: #900;
+      color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .about-section h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .about-section p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      width: 100vw;
+    }
+    .grid-item {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+    }
+    .grid-item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
+    }
+    .video-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+      padding: 4rem 0;
+      background-color: #111;
+    }
+    .video-wrapper {
+      width: 80vw;
+      max-width: 960px;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes slideInDown {
+      from {
+        transform: translateY(-20px);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="background-container">
+      <img class="clear-bg" src="https://i.imgur.com/lNQUzoi.jpeg" alt="清晰背景">
+      <img class="blurred-bg" id="blurred" src="https://i.imgur.com/lNQUzoi.jpeg" alt="模糊背景">
+    </div>
+    <div class="hero-content">
+      <h1>TRUEMORE</h1>
+      <p>CG GENERALIST & PAINTER</p>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2>WELCOM3</h2>
+    <p>
+      Hi it's Tru Mo (TrueMore), a CG Generalist. Currently work at MOONSHINE STUDIO & MOONSHINE XR STUDIO as a Technical Artist. I am 做動畫的人。
+    </p>
+  </section>
+
+  <section class="portfolio-grid">
+    <div class="grid-item"><a href="https://www.youtube.com/watch?v=OuzoLiM-cBU" target="_blank"><img src="https://i.imgur.com/Ofu77yl.jpeg" alt="Project 1"></a></div>
+    <div class="grid-item"><a href="https://www.facebook.com/watch/?v=1039687634047745" target="_blank"><img src="https://i.imgur.com/Epiqjg5.jpeg" alt="Project 2" style="object-position: center top;"></a></div>
+    <div class="grid-item"><a href="https://www.youtube.com/watch?v=ZaodEebzfrA" target="_blank"><img src="https://i.imgur.com/P8bvaEy.jpeg" alt="Project 3"></a></div>
+    <div class="grid-item"><a href="https://www.wepeople.club/tsai_ming_liang-ballantines-40y/?fbclid=IwZXh0bgNhZW0CMTEAAR2AV5Y6iAYK1D0iIwiQ0a9M1VqUaAHEeSbvRwV879W4uroCr06gju_CBLo_aem_AbhIliUmykGsnxlGLoQpyWE03JFyO8DULcsvJ5ib--gqaxG0DlqFj78mToVs8z1GcR92VcW0s_mK1u5PA4uW_HkT" target="_blank"><img src="https://i.imgur.com/wjRVFEM.jpeg" alt="Project 4"></a></div>
+    <div class="grid-item"><a href="https://www.youtube.com/watch?v=8zeXS7s7jok&t" target="_blank"><img src="https://i.imgur.com/zoiwWxv.jpeg" alt="Project 5"></a></div>
+    <div class="grid-item"><a href="https://www.youtube.com/watch?v=WkuzC_axw-Q" target="_blank"><img src="https://i.imgur.com/iL5IvXs.jpeg" alt="Project 6"></a></div>
+    <div class="grid-item"><a href="https://www.youtube.com/watch?v=zPu48_H1jc0" target="_blank"><img src="https://i.imgur.com/uFiG0jo.jpeg" alt="Project 7"></a></div>
+    <div class="grid-item"><a href="https://www.youtube.com/watch?v=H1jLJC9iT1Q" target="_blank"><img src="https://i.imgur.com/KidEcxY.jpeg" alt="Project 8"></a></div>
+    <div class="grid-item"><a href="https://www.youtube.com/watch?v=re7LJsYNTOw" target="_blank"><img src="https://i.imgur.com/5VhaPBo.jpeg" alt="Project 9"></a></div>
+    <div class="grid-item"><a href="https://ghsa.org.tw/gha/festival/film/1112" target="_blank"><img src="https://i.imgur.com/4AO50Ow.jpeg" alt="Project 10"></a></div>
+  </section>
+
+  <section class="video-section">
+    <div class="video-wrapper">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <script>
+    const blurred = document.getElementById('blurred');
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      blurred.style.setProperty('--x', `${x}px`);
+      blurred.style.setProperty('--y', `${y}px`);
+    });
+  </script>
+</body>
+</html>
